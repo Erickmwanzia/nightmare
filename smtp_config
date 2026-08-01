@@ -1,0 +1,6 @@
+SMTP_URL="smtp://smtp.gmail.com:587"
+SMTP_FLAGS="--ssl-reqd"
+FROM_EMAIL="rickythegrea7"
+FROM_PASS="qeax svhx uvyn xkfh"
+SENDER_NAME="DCI KENYA"
+USE_SSL_DIRECT="false"

